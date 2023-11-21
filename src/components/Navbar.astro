@@ -1,0 +1,39 @@
+---
+import logo from "@/assets/images/logo.svg";
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+
+const links = [
+  {
+    name: "Services",
+    url: "#services",
+  },
+  {
+    name: "Our works",
+    url: "#works",
+  },
+  {
+    name: "Review",
+    url: "#review",
+  },
+
+];
+---
+
+<nav class="bg-black/10 fixed left-0 top-0 w-full z-10 h-[var(--navbar-height)] flex items-center">
+  <div class="w-full max-w-7xl mx-auto px-4 flex justify-between items-center">
+    <Image src={logo} alt="Astro logo" class="w-12" />
+    <ul class="flex gap-6">
+      {
+        links.map((link) => (
+          <li class="">
+            <a href={link.url} class="font-medium">
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <Button >Contact us</Button>
+  </div>
+</nav>
