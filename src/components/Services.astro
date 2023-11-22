@@ -22,9 +22,9 @@ const data = [
 ];
 ---
 
-<section id="services" class="py-24 flex flex-col items-center gap-12 max-w-7xl mx-auto px-4">
+<section id="services" class="py-16 md:py-24 flex flex-col items-center gap-12 max-w-7xl mx-auto px-4">
   <div class="flex flex-col gap-3 items-center text-center">
-    <h1 class="text-5xl font-rubric font-extrabold capitalize text-white">How we can help</h1>
+    <h1 class="text-4xl md:text-5xl font-rubric font-extrabold capitalize text-white">How we can help</h1>
     <p class="max-w-[486px] text-lg">
       We offer a variety of services to help you with your software development
       needs:
@@ -35,7 +35,7 @@ const data = [
       data.map((d) => (
         <div class="bg-[#1E1E1E] flex flex-col items-center text-center p-6 rounded-3xl max-w-sm">
           <Icon name={d.icon} class="w-12 h-12 pt-4 mb-3" />
-          <h2 class="text-3xl text-white font-bold mb-4">{d.service}</h2>
+          <h2 class="text-2xl md:text-3xl text-white font-bold mb-4">{d.service}</h2>
           <p class="">{d.description}</p>
         </div>
       ))

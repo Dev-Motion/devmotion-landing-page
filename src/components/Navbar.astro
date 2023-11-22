@@ -22,7 +22,7 @@ const links = [
 <nav class="bg-black/30 backdrop-blur-md fixed left-0 top-0 w-full z-10 h-[var(--navbar-height)] flex items-center">
   <div class="w-full container mx-auto px-4 flex justify-between items-center">
    <Icon  name="logo" class="w-12" />
-    <ul class="flex gap-6">
+    <ul class="hidden md:flex gap-6">
       {
         links.map((link) => (
           <li class="">
@@ -33,6 +33,6 @@ const links = [
         ))
       }
     </ul>
-    <Button >Contact us</Button>
+    <Button class="hidden md:flex" >Contact us</Button>
   </div>
 </nav>
