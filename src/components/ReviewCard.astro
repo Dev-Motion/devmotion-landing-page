@@ -1,0 +1,29 @@
+---
+import { cn } from "@/utils";
+import { Image } from "astro:assets";
+interface Props {
+  name: string;
+  job: string;
+  review: string;
+  image: ImageMetadata;
+  className: string;
+}
+
+const { name, job, review, image, className } = Astro.props;
+---
+
+<div
+  class={cn(
+    "bg-[#1E1E1E] space-y-11 px-7 py-8 border border-[#37363C] rounded-3xl max-w-[310px]",
+    className
+  )}
+>
+  <p class="">{review}</p>
+  <div class="flex gap-3 items-center">
+    <Image src={image} alt={name} class="w-14 h-14 rounded-full" />
+    <div>
+      <h2 class="font-bold">{name}</h2>
+      <h3 class="text-sm text-[#AFAFB1]">{job}</h3>
+    </div>
+  </div>
+</div>

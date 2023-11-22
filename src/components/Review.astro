@@ -1,0 +1,114 @@
+---
+import Icon from "astro-icon";
+import Button from "./Button.astro";
+import ReviewCard from "./ReviewCard.astro";
+import Avatar from "@/assets/images/avatar.png";
+import { cn } from "@/utils";
+
+const reviews = [
+  {
+    name: "Hamzat Victor",
+    job: "CEO, HNG",
+    review:
+      "MSSPACE is better than the other platforms we tried our  hands on for auditing projects",
+    image: Avatar,
+  },
+  {
+    name: "Hamzat Victor",
+    job: "CEO, HNG",
+    review:
+      "MSSPACE is better than the other platforms we tried our  hands on for auditing projects",
+    image: Avatar,
+  },
+  {
+    name: "Hamzat Victor",
+    job: "CEO, HNG",
+    review:
+      "MSSPACE is better than the other platforms we tried our  hands on for auditing projects",
+    image: Avatar,
+  },
+  {
+    name: "Hamzat Victor",
+    job: "CEO, HNG",
+    review:
+      "MSSPACE is better than the other platforms we tried our  hands on for auditing projects",
+    image: Avatar,
+  },
+  {
+    name: "Hamzat Victor",
+    job: "CEO, HNG",
+    review:
+      "MSSPACE is better than the other platforms we tried our  hands on for auditing projects",
+    image: Avatar,
+  },
+  {
+    name: "Hamzat Victor",
+    job: "CEO, HNG",
+    review:
+      "MSSPACE is better than the other platforms we tried our  hands on for auditing projects",
+    image: Avatar,
+  },
+  {
+    name: "Hamzat Victor",
+    job: "CEO, HNG",
+    review:
+      "MSSPACE is better than the other platforms we tried our  hands on for auditing projects",
+    image: Avatar,
+  },
+];
+---
+
+<section id="review" class="py-24 flex flex-col gap-12">
+  <div class="flex justify-between max-w-7xl w-full mx-auto px-4">
+    <div class="flex flex-col gap-3 text-left">
+      <h1 class="text-5xl font-rubric font-extrabold capitalize text-white">
+        Don’t take our word for it
+      </h1>
+      <p class="max-w-[550px] text-lg">
+        Our work speaks for itself! check out what our clients are saying about
+        our products
+      </p>
+    </div>
+    <div class="flex gap-4 items-center">
+      <Button class="embla__prev" icon size="lg" variant="outline-plain">
+        <Icon name="back" />
+      </Button>
+      <Button class="embla__next" icon variant="outline-plain" size="lg">
+        <Icon name="forward" />
+      </Button>
+    </div>
+  </div>
+  <div class="embla overflow-hidden px-4 md:px-8">
+    <div class="embla__container flex gap-6">
+      {
+        reviews.map((review, i) => (
+          <ReviewCard
+            className={cn("flex-[0_0_30%]", i === 0 && "ml-6")}
+            {...review}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+<script>
+  import EmblaCarousel from "embla-carousel";
+  import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
+  import Autoplay from "embla-carousel-autoplay";
+
+  const emblaNode = document.querySelector(".embla") as HTMLElement;
+  const prevButtonNode = document.querySelector(".embla__prev") as HTMLElement;
+  const nextButtonNode = document.querySelector(".embla__next") as HTMLElement;
+  const options = { loop: true };
+
+  const emblaApi = EmblaCarousel(emblaNode, options, [
+    WheelGesturesPlugin(),
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: true,
+      stopOnMouseEnter: true,
+    }),
+  ]);
+  prevButtonNode.addEventListener("click", () => emblaApi.scrollPrev(), false);
+  nextButtonNode.addEventListener("click", () => emblaApi.scrollNext(), false);
+</script>
