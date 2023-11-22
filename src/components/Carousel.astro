@@ -1,0 +1,113 @@
+---
+const keywords = [
+  new Date().getFullYear().toString(),
+  "software agency",
+  "building usable products",
+  "Nigeria",
+  "ideas → life",
+  "Open Source",
+];
+---
+
+<section class="scroller overflow-hidden pb-2 bg-black">
+  <div
+    class="after-shadow relative"
+    data-direction="right"
+    data-speed="slow"
+  >
+    <ul
+      class="scroller__inner flex gap-16 py-4 z-10 bg-primary whitespace-nowrap"
+    >
+      {
+        keywords.map((keyword) => {
+          return (
+            <li class="text-white uppercase font-light text-3xl md:text-5xl">
+              {keyword}
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>
+<style>
+  .after-shadow {
+    transform: rotate(-0.785deg);
+}
+.after-shadow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: rotate(0.785deg);
+    background-color: #a9772e;
+    transform-origin: center;
+    z-index: -10;
+  }
+  /* From Kevin Powell's tutorial */
+  
+  .scroller__inner {
+    padding-block: 1rem;
+  }
+
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+  }
+
+  .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+  }
+
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+</style>
+<script>
+  // For Kevin Powell's tutorial
+  const scrollers = document.querySelectorAll(".scroller");
+
+  // If a user hasn't opted in for recuded motion, then we add the animation
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    addAnimation();
+  }
+
+  function addAnimation() {
+    scrollers.forEach((scroller) => {
+      // add data-animated="true" to every `.scroller` on the page
+      scroller.setAttribute("data-animated", true);
+
+      // Make an array from the elements within `.scroller-inner`
+      const scrollerInner = scroller.querySelector(".scroller__inner");
+      const scrollerContent = Array.from(scrollerInner.children);
+
+      // For each item in the array, clone it
+      // add aria-hidden to it
+      // add it into the `.scroller-inner`
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute("aria-hidden", true);
+        scrollerInner.appendChild(duplicatedItem);
+      });
+    });
+  }
+</script>
