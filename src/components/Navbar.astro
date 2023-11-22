@@ -44,6 +44,7 @@ const links = [
         size="default"
         class="relative md:hidden"
         aria-expanded="false"
+        aria-controls="mobile-nav-content"
       >
         <div
           class="mobile-nav-bg bg-transparent inset-0 absolute rounded-full -z-10"
@@ -55,10 +56,11 @@ const links = [
     </div>
   </div>
   <section
+    id="mobile-nav-content"
     role="tabpanel"
     tabindex="0"
     class="mobile-nav relative md:hidden"
-    aria-hidden="true"
+    data-open="false"
   >
     <div class="flex flex-col gap-4 items-start">
       {
@@ -82,7 +84,7 @@ const links = [
     overflow: hidden;
   }
 
-  .mobile-nav[aria-hidden="false"] {
+  .mobile-nav[data-open="true"] {
     grid-template-rows: 1fr;
   }
   .mobile-nav-bg {
@@ -91,7 +93,7 @@ const links = [
       background-color 500ms;
   }
   [aria-expanded="false"] .menu-open {
-    display:  block;
+    display: block;
   }
   [aria-expanded="false"] .menu-close {
     display: none;
@@ -117,6 +119,6 @@ const links = [
   button.addEventListener("click", () => {
     const expanded = button.getAttribute("aria-expanded") === "true";
     button.setAttribute("aria-expanded", `${!expanded}`);
-    mobileNav.setAttribute("aria-hidden", `${expanded}`);
+    mobileNav.setAttribute("data-open", `${!expanded}`);
   });
 </script>
