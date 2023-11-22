@@ -15,24 +15,108 @@ const links = [
     name: "Review",
     url: "#review",
   },
-
 ];
 ---
 
-<nav class="bg-black/30 backdrop-blur-md fixed left-0 top-0 w-full z-10 h-[var(--navbar-height)] flex items-center">
-  <div class="w-full container mx-auto px-4 flex justify-between items-center">
-   <Icon  name="logo" class="w-12" />
-    <ul class="hidden md:flex gap-6">
+<nav class="fixed left-0 top-0 w-full z-10 overflow-hidden">
+  <div
+    class="bg-black/30 backdrop-blur-md h-[var(--navbar-height)] flex items-center"
+  >
+    <div
+      class="w-full container mx-auto px-4 flex justify-between items-center"
+    >
+      <Icon name="logo" class="w-12" />
+      <ul class="hidden md:flex gap-6">
+        {
+          links.map((link) => (
+            <li class="">
+              <a href={link.url} class="font-medium">
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <Button class="hidden md:flex">Contact us</Button>
+      <Button
+        variant="secondary"
+        icon
+        size="default"
+        class="relative md:hidden"
+        aria-expanded="false"
+      >
+        <div
+          class="mobile-nav-bg bg-transparent inset-0 absolute rounded-full -z-10"
+        >
+        </div>
+        <Icon name="hamburger" class="menu-open" />
+        <Icon name="close" class="menu-close" />
+      </Button>
+    </div>
+  </div>
+  <section
+    role="tabpanel"
+    tabindex="0"
+    class="mobile-nav relative md:hidden"
+    aria-hidden="true"
+  >
+    <div class="flex flex-col gap-4 items-start">
       {
         links.map((link) => (
-          <li class="">
-            <a href={link.url} class="font-medium">
-              {link.name}
-            </a>
-          </li>
+          <a href={link.url} class="font-medium font-lg py-2 px-4">
+            {link.name}
+          </a>
         ))
       }
-    </ul>
-    <Button class="hidden md:flex" >Contact us</Button>
-  </div>
+      <Button variant="outline-plain" class="mx-4 mb-4">Contact us</Button>
+    </div>
+  </section>
 </nav>
+<style>
+  .mobile-nav {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+  }
+  .mobile-nav > div {
+    overflow: hidden;
+  }
+
+  .mobile-nav[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+  }
+  .mobile-nav-bg {
+    transition:
+      transform 500ms,
+      background-color 500ms;
+  }
+  [aria-expanded="false"] .menu-open {
+    display:  block;
+  }
+  [aria-expanded="false"] .menu-close {
+    display: none;
+  }
+  [aria-expanded="true"] .menu-open {
+    display: none;
+  }
+  [aria-expanded="true"] .menu-close {
+    display: block;
+  }
+
+  [aria-expanded="true"] .mobile-nav-bg {
+    background-color: rgb(109, 51, 204);
+    transform: scale(35);
+  }
+</style>
+<script>
+  const button = document.querySelector("button[aria-expanded]");
+  const mobileNav = document.querySelector(".mobile-nav");
+  if (!button || !mobileNav) {
+    throw new Error("Missing button or mobile nav");
+  }
+  button.addEventListener("click", () => {
+    const expanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", `${!expanded}`);
+    mobileNav.setAttribute("aria-hidden", `${expanded}`);
+  });
+</script>
