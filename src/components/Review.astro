@@ -92,23 +92,24 @@ const reviews = [
   </div>
 </section>
 <script>
-  import EmblaCarousel from "embla-carousel";
+  import EmblaCarousel, {
+    type EmblaOptionsType,
+    type EmblaPluginType,
+  } from "embla-carousel";
   import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
   import Autoplay from "embla-carousel-autoplay";
 
   const emblaNode = document.querySelector(".embla") as HTMLElement;
   const prevButtonNode = document.querySelector(".embla__prev") as HTMLElement;
   const nextButtonNode = document.querySelector(".embla__next") as HTMLElement;
-  const options = { loop: true };
-
-  const emblaApi = EmblaCarousel(emblaNode, options, [
+  const options: EmblaOptionsType = { loop: true, align: "start" };
+  const plugins: EmblaPluginType[] = [
     WheelGesturesPlugin(),
-    Autoplay({
-      delay: 5000,
-      stopOnInteraction: true,
-      stopOnMouseEnter: true,
-    }),
-  ]);
+    Autoplay({ stopOnMouseEnter: true }),
+  ];
+
+  const emblaApi = EmblaCarousel(emblaNode, options, plugins);
+
   prevButtonNode.addEventListener("click", () => emblaApi.scrollPrev(), false);
   nextButtonNode.addEventListener("click", () => emblaApi.scrollNext(), false);
 </script>
