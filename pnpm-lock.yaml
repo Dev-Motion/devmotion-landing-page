@@ -26,6 +26,15 @@ dependencies:
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
+  embla-carousel:
+    specifier: 8.0.0-rc14
+    version: 8.0.0-rc14
+  embla-carousel-autoplay:
+    specifier: 8.0.0-rc14
+    version: 8.0.0-rc14(embla-carousel@8.0.0-rc14)
+  embla-carousel-wheel-gestures:
+    specifier: 8.0.0-rc05
+    version: 8.0.0-rc05(embla-carousel@8.0.0-rc14)
   tailwind-merge:
     specifier: ^2.0.0
     version: 2.0.0
@@ -1671,6 +1680,28 @@ packages:
 
   /electron-to-chromium@1.4.588:
     resolution: {integrity: sha512-soytjxwbgcCu7nh5Pf4S2/4wa6UIu+A3p03U2yVr53qGxi1/VTR3ENI+p50v+UxqqZAfl48j3z55ud7VHIOr9w==}
+    dev: false
+
+  /embla-carousel-autoplay@8.0.0-rc14(embla-carousel@8.0.0-rc14):
+    resolution: {integrity: sha512-ey3MFD6Lti8sAO/bHLvdl+LO19U77SpYVIZP5rsPqFpnRac7bjZt9cSZ5udw9adniN0ckeRe+0y5wy+AYmzQsw==}
+    peerDependencies:
+      embla-carousel: 8.0.0-rc14
+    dependencies:
+      embla-carousel: 8.0.0-rc14
+    dev: false
+
+  /embla-carousel-wheel-gestures@8.0.0-rc05(embla-carousel@8.0.0-rc14):
+    resolution: {integrity: sha512-KfPlGuOvMterlg01FDd+Iws5wefInkyks4ai3p4n4B5WAiyel+DHs4AFu09UmshcnHpIH5cLJQ6VJCbp/kyy1A==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      embla-carousel: ^8.0.0 || ~8.0.0-rc03
+    dependencies:
+      embla-carousel: 8.0.0-rc14
+      wheel-gestures: 2.2.5
+    dev: false
+
+  /embla-carousel@8.0.0-rc14:
+    resolution: {integrity: sha512-/NLkMFZ7xKryRVYeUjmhbfV63Vr07saPBDwAX2TPMbcaiWwfQfU5Xsc2AiCMZANtwmzsjRK6gSBa7hOy/VXu6g==}
     dev: false
 
   /emmet@2.4.6:
@@ -4380,6 +4411,11 @@ packages:
   /web-streams-polyfill@3.2.1:
     resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
     engines: {node: '>= 8'}
+    dev: false
+
+  /wheel-gestures@2.2.5:
+    resolution: {integrity: sha512-01BlXRjBVt5Gy0VH2rRqMeccHruTGq2Gd1fx0UqCPN8KDeDCmlTXsRGc/hXJk6W+wnO9CNJp2xfntMNRArBxKQ==}
+    engines: {node: '>=10'}
     dev: false
 
   /which-pm-runs@1.1.0:
