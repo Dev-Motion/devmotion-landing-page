@@ -1,6 +1,4 @@
 ---
-import logo from "@/assets/images/logo.svg";
-import { Image } from "astro:assets";
 import Button from "./Button.astro";
 import Icon from "astro-icon";
 
@@ -21,9 +19,9 @@ const links = [
 ];
 ---
 
-<nav class="bg-black/10 fixed left-0 top-0 w-full z-10 h-[var(--navbar-height)] flex items-center">
-  <div class="w-full max-w-7xl mx-auto px-4 flex justify-between items-center">
-   <Icon  name="logo" />
+<nav class="bg-black/30 backdrop-blur-md fixed left-0 top-0 w-full z-10 h-[var(--navbar-height)] flex items-center">
+  <div class="w-full container mx-auto px-4 flex justify-between items-center">
+   <Icon  name="logo" class="w-12" />
     <ul class="flex gap-6">
       {
         links.map((link) => (
