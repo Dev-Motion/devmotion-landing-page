@@ -41,14 +41,14 @@ const faqs = [
         <div class="accordion cursor-pointer bg-[#1E1E1E] border border-[#37363C] rounded-3xl w-full">
           <div
             aria-expanded="false"
-            class="accordion-trigger flex justify-between p-6 pb-0"
+            class="accordion-trigger flex justify-between p-6"
           >
             <h2 class="font-semibold">{faq.question}</h2>
             <Icon name="chevron" class="chevron w-4 " />
           </div>
-          <div class="accordion-content p-6 pt-0">
+          <div class="accordion-content">
             <div>
-              <p class="text-sm mt-4">{faq.answer}</p>
+              <p class="text-sm p-6 pt-0 ">{faq.answer}</p>
             </div>
           </div>
         </div>
