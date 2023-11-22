@@ -1,0 +1,48 @@
+---
+import Icon from "astro-icon";
+import Button from "./Button.astro";
+const data = [
+  {
+    service: "Product development",
+    description: "We can help you turn your idea into a reality.",
+    icon: "product",
+  },
+  {
+    service: "Consultancy",
+    description:
+      "We can help you improve your existing products and processes, or guide you on how to use new technologies and strategies.",
+    icon: "consult",
+  },
+  {
+    service: "Team upskilling",
+    description:
+      "We can help you train and inspire your team with the latest skills and knowledge in software development.",
+    icon: "upskill",
+  },
+];
+---
+
+<section id="services" class="py-24 flex flex-col items-center gap-12 max-w-7xl mx-auto px-4">
+  <div class="flex flex-col gap-3 items-center text-center">
+    <h1 class="text-5xl font-rubric font-extrabold capitalize text-white">How we can help</h1>
+    <p class="max-w-[486px] text-lg">
+      We offer a variety of services to help you with your software development
+      needs:
+    </p>
+  </div>
+  <div class="flex flex-wrap justify-center gap-6">
+    {
+      data.map((d) => (
+        <div class="bg-[#1E1E1E] flex flex-col items-center text-center p-6 rounded-3xl max-w-sm">
+          <Icon name={d.icon} class="w-12 h-12 pt-4 mb-3" />
+          <h2 class="text-3xl text-white font-bold mb-4">{d.service}</h2>
+          <p class="">{d.description}</p>
+        </div>
+      ))
+    }
+  </div>
+  <Button size="lg">
+    <Icon slot="icon-before" name="chat" />
+     Let's have a chat
+  </Button>
+</section>
