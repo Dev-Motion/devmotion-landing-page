@@ -1,40 +1,42 @@
-# Astro Starter Kit: Basics
+# Devmotion Landing Page
 
-```sh
-npm create astro@latest -- --template basics
-```
+The official repository for the Devmotion landing page.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+> Built with [Astro🚀](https://astro.build)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+![Paige preview](https://raw.githubusercontent.com/Dev-Motion/.github/main/assets/devmotion-preview.png)
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside repository, you'll see the following folders and files:
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+├───.vscode
+├───public
+└───src
+    ├───assets
+    │   └───images
+    ├───components
+    ├───icons
+    ├───layouts
+    ├───pages
+    └───utils
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The `src/components/` directory for our components. Astro uses the [Snowpack](https://www.snowpack.dev/) module bundler, which means that each component is its own module. This allows us to use the same component in multiple pages without worrying about collisions.
 
-Any static assets, like images, can be placed in the `public/` directory.
+The `src/layouts/` directory contains the layout components for our site. Layouts are special components that wrap other components, and are used to create a consistent layout across multiple pages.
+
+The `src/assets/` directory is where we keep our static assets like images.
+
+The `src/utils/` directory is where we keep our utility functions. These are functions that are used across multiple components, like a function that lets you create class names conditionally while merging of tailwind classes when needed.
+
+The `src/icons/` directory is where we keep our SVG icons. These icons are used across multiple components and are automatically optimized by the `astro-icon` library.
+
+Any static assets that doesn't need optimization, like favicon, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -49,6 +51,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Contributing
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+If you want to contribute to this project, please read the [CONTRIBUTING.md](#) file.
