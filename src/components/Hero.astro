@@ -6,7 +6,7 @@ import Carousel from "./Carousel.astro";
 
 <section class="hero">
   <div
-    class="md:h-screen md:max-h-[950px] pt-[var(--navbar-height)] flex flex-col"
+    class="md:min-h-screen lg:h-screen lg:min-h-0 md:max-h-[950px] pt-[var(--navbar-height)] flex flex-col"
   >
     <div class="w-full py-6 max-w-7xl mx-auto px-4 flex-1 grid md:grid-cols-2 gap-2  justify-center items-center">
       <div class="space-y-6">
@@ -18,12 +18,20 @@ import Carousel from "./Carousel.astro";
           business needs. Whether you need a new product, a consultation, or a
           training, we have the skills and the passion to help you succeed
         </p>
-        <div class="flex justify-between gap-1 md:justify-start md:gap-4">
-          <Button size="lg" >
+        <div class="flex gap-2 sm:gap-3 md:justify-start md:gap-4">
+          <Button class="lg:hidden">
               <Icon slot="icon-before" name="chat" />
-              Let's chat
+              Schedule a call
           </Button>
-          <Button size="lg" variant="secondary" >
+          <Button variant="secondary" class="lg:hidden" >
+              <Icon slot="icon-after" name="forward" />
+              View projects
+          </Button>
+          <Button size="lg" class="hidden lg:flex">
+              <Icon slot="icon-before" name="chat" />
+              Schedule a call
+          </Button>
+          <Button variant="secondary" size="lg" class="hidden lg:flex" >
               <Icon slot="icon-after" name="forward" />
               View projects
           </Button>
