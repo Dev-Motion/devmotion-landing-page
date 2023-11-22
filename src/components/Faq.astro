@@ -1,0 +1,98 @@
+---
+import Icon from "astro-icon";
+import Button from "./Button.astro";
+const faqs = [
+  {
+    question: "How do you charge for your services?",
+
+    answer:
+      "We charge based on the scope, complexity, and duration of the project. We provide a free consultation and a detailed quote before we start working on your project.",
+  },
+  {
+    question: "What kind of technologies do you use?",
+
+    answer:
+      "We use the latest and most suitable technologies for each project. We are proficient in various tools, frameworks, languages, and techniques and have enough experience to give the best recommendations.",
+  },
+  {
+    question: "What kind of projects can you handle?",
+
+    answer:
+      "We can handle any kind of software development project, from web and mobile applications to desktop and cloud software. We have experience in various domains and industries, such as education, health, finance, entertainment, etc. We can also help you with existing products and processes, or advise you on new technologies and strategies.",
+  },
+  {
+    question: "How do you ensure the quality of your products and services?",
+
+    answer:
+      "We ensure the quality of our products and services by following the best practices and standards in software development. We use agile methodologies, code reviews, testing tools, debugging tools, and quality assurance processes to ensure that our products are reliable, secure, and user-friendly. We also provide regular updates and feedback to our clients throughout the development process.",
+  },
+];
+---
+
+<section id="faq" class="py-24 flex flex-col items-center gap-12">
+  <h1
+    class="text-5xl text-center font-rubric font-extrabold capitalize text-white"
+  >
+    FAQs
+  </h1>
+  <div class="flex flex-col gap-4 items-center max-w-4xl w-full">
+    {
+      faqs.map((faq, i) => (
+        <div class="accordion cursor-pointer bg-[#1E1E1E] border border-[#37363C] rounded-3xl w-full">
+          <div
+            aria-expanded="false"
+            class="accordion-trigger flex justify-between p-6 pb-0"
+          >
+            <h2 class="font-semibold">{faq.question}</h2>
+            <Icon name="chevron" class="chevron w-4 " />
+          </div>
+          <div class="accordion-content p-6 pt-0">
+            <div>
+              <p class="text-sm mt-4">{faq.answer}</p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <Button variant="outline-plain" size="lg">Start a Project</Button>
+</section>
+<style>
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+  }
+  .accordion-content > div {
+    overflow: hidden;
+  }
+
+  .accordion-content[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+  }
+  .accordion-trigger svg{
+    transition: transform 500ms ease-in-out;
+  }
+
+  .accordion-trigger[aria-expanded="false"] svg {
+    transform: rotate(90deg);
+  }
+  .accordion-trigger[aria-expanded="true"] svg {
+    transform: rotate(0deg);
+  }
+</style>
+<script>
+  const accordions = document.querySelectorAll(".accordion");
+
+  accordions.forEach((accordion) => {
+    const trigger = accordion.querySelector(".accordion-trigger");
+    const content = accordion.querySelector(".accordion-content");
+    if (!trigger || !content) return;
+    accordion.addEventListener("click", () => {
+      const expanded = trigger.getAttribute("aria-expanded") === "true";
+
+      trigger.setAttribute("aria-expanded", `${!expanded}`);
+      content.setAttribute("aria-hidden", `${expanded}`);
+    });
+  });
+</script>
