@@ -12,7 +12,7 @@ const buttonVariants = cva(
         primary: "bg-primary text-white hover:bg-primary/90 ",
         secondary: "bg-[#f9f9f94d] text-white hover:bg-[#f9f9f94d]/20 inset-box-shadow",
         plain: "bg-gray-6 border border-gray-5 hover:bg-gray-6/50",
-        "outline-plain": "border border-gray-4 bg-white hover:bg-gray-6/50",
+        "outline-plain": "border border-gray-4 bg-transparent hover:bg-gray-600/50",
         outline: "border border-primary text-gray-1 hover:bg-primary/90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
@@ -25,7 +25,7 @@ const buttonVariants = cva(
         lg: "py-3 px-6 text-lg font-semibold [--icon-size:24px]",
       },
       icon: {
-        true: "p-0",
+        true: "p-[0!important]",
       },
       rounded: {
         default: "rounded-md",
@@ -50,7 +50,7 @@ const buttonVariants = cva(
       {
         icon: true,
         size: "lg",
-        className: "h-10 w-10",
+        className: "h-16 w-16",
       },
     ],
     defaultVariants: {
@@ -76,7 +76,7 @@ const {
 ---
 
 <button
-  class={buttonVariants({ variant, size, fullWidth, rounded, icon })}
+  class={buttonVariants({ variant, size, fullWidth, rounded, icon,className:rest.class })}
   {...rest}
 >
   <slot name="icon-before" />
