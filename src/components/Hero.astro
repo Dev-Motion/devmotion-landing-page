@@ -1,32 +1,37 @@
 ---
 import Button from "./Button.astro";
 import { Icon } from 'astro-icon';
+import Carousel from "./Carousel.astro";
 ---
 
 <section class="hero">
   <div
-    class="md:h-screen md:max-h-[950px] max-w-7xl mx-auto px-4 grid grid-cols-2 gap-2 h-full pt-[var(--navbar-height)] justify-center items-center"
+    class="md:h-screen md:max-h-[950px] pt-[var(--navbar-height)] flex flex-col"
   >
-    <div class="space-y-6">
-      <h1 class="font-rubric text-6xl  max-w-[520px] leading-[120%] font-bold">
-        <span class="text-[#F8C5B9]">Building Software</span> that helps you do better
-      </h1>
-      <p class="max-w-[530px]">
-        We specialize in creating innovative and impactful solutions for your
-        business needs. Whether you need a new product, a consultation, or a
-        training, we have the skills and the passion to help you succeed
-      </p>
-      <div class="flex gap-4">
-        <Button size="lg" >
-            <Icon slot="icon-before" name="chat" />
-            Let's have a chat
-        </Button>
-        <Button size="lg" variant="secondary" >
-            <Icon slot="icon-after" name="forward" />
-            View projects
-        </Button>
+    <div class="w-full max-w-7xl mx-auto px-4 flex-1 grid grid-cols-2 gap-2  justify-center items-center">
+      <div class="space-y-6">
+        <h1 class="font-rubric text-6xl  max-w-[520px] leading-[120%] font-bold">
+          <span class="text-[#F8C5B9]">Building Software</span> that helps you do better
+        </h1>
+        <p class="max-w-[530px]">
+          We specialize in creating innovative and impactful solutions for your
+          business needs. Whether you need a new product, a consultation, or a
+          training, we have the skills and the passion to help you succeed
+        </p>
+        <div class="flex gap-4">
+          <Button size="lg" >
+              <Icon slot="icon-before" name="chat" />
+              Let's have a chat
+          </Button>
+          <Button size="lg" variant="secondary" >
+              <Icon slot="icon-after" name="forward" />
+              View projects
+          </Button>
+        </div>
       </div>
+      <div/>
     </div>
+    <Carousel/>
   </div>
 </section>
 <style>
