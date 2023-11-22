@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import PaigePreview from "@/assets/images/paige-preview.png";
+import Button from "./Button.astro";
+import Icon from "node_modules/astro-icon/lib/Icon.astro";
+
+const tags = {
+  paige: [
+    "Chrome",
+    "Browser Extension",
+    "Productivity",
+    "Personalization",
+    "Design",
+    "Development",
+  ],
+  devio: ["Portfolio", "Web app", "Personalization", "Developers", "Design"],
+};
+---
+
+<section id="works" class="py-24 flex flex-col items-center gap-12 max-w-7xl mx-auto px-4">
+  <div class="flex flex-col gap-3 items-center text-center">
+    <h1 class="text-5xl font-rubric font-extrabold capitalize text-white">
+      Some of our work
+    </h1>
+    <p class="max-w-[550px] text-lg">
+      We are proud to show off some of the products and live tools that we have
+      created for our clients and the public(open source)
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div
+      class="inset-shadow bg-[#1E1E1E] flex flex-col gap-9 px-6 pt-6 rounded-3xl cursor-pointer"
+    >
+      <div class="space-y-3">
+        <h1 class="text-2xl font-bold text-white">Paige- browser extension</h1>
+        <p>
+          A browser extension solution for personalizing your browsing
+          experience
+        </p>
+        <ul class="flex flex-wrap gap-2">
+          {
+            tags.paige.map((tag) => (
+              <li class="whitespace-nowrap bg-[#1E1E1E] inset-shadow px-3 py-1.5 rounded-full text-white text-xs font-medium">
+                {tag}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <Image src={PaigePreview} alt="paige preview" class="w-full" />
+    </div>
+    <div
+      class="inset-shadow relative bg-[#1E1E1E] flex flex-col gap-9 px-6 pt-6 rounded-3xl overflow-hidden"
+    >
+      <div
+        class="absolute bg-black/40 inset-0 grid place-items-center cursor-not-allowed"
+      >
+        <h1 class="font-rubric text-6xl font-bold -rotate-45 opacity-50">
+          Coming Soon
+        </h1>
+      </div>
+      <div class="space-y-3">
+        <h1 class="text-2xl font-bold text-white">Devio</h1>
+        <p>Build your developer portfolio without breaking a sweat!</p>
+        <ul class="flex flex-wrap gap-2">
+          {
+            tags.devio.map((tag) => (
+              <li class="whitespace-nowrap bg-[#1E1E1E] inset-shadow px-3 py-1.5 rounded-full text-white text-xs font-medium">
+                {tag}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="w-full h-full bg-[#585858] rounded-t-2xl"></div>
+    </div>
+  </div>
+  <Button size="lg" variant="secondary">
+    Book an Appointment
+    <Icon slot="icon-after" name="forward" />
+  </Button>
+</section>
