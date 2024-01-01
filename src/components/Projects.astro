@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import PaigePreview from "@/assets/images/paige-preview.png";
 import Button from "./Button.astro";
-import Icon from "node_modules/astro-icon/lib/Icon.astro";
+import { Icon } from "astro-icon/components";
 
 const tags = {
   paige: [
@@ -17,9 +17,14 @@ const tags = {
 };
 ---
 
-<section id="works" class="py-16 md:py-24 flex flex-col items-center gap-12 max-w-7xl mx-auto px-4">
+<section
+  id="works"
+  class="py-16 md:py-24 flex flex-col items-center gap-12 max-w-7xl mx-auto px-4"
+>
   <div class="flex flex-col gap-3 items-center text-center">
-    <h1 class="text-4xl md:text-5xl font-rubric font-extrabold capitalize text-white">
+    <h1
+      class="text-4xl md:text-5xl font-rubric font-extrabold capitalize text-white"
+    >
       Some of our work
     </h1>
     <p class="max-w-[550px] text-lg">
@@ -55,7 +60,9 @@ const tags = {
       <div
         class="absolute bg-black/40 inset-0 grid place-items-center cursor-not-allowed"
       >
-        <h1 class="font-rubric text-4xl md:text-6xl font-bold -rotate-45 opacity-50">
+        <h1
+          class="font-rubric text-4xl md:text-6xl font-bold -rotate-45 opacity-50"
+        >
           Coming Soon
         </h1>
       </div>

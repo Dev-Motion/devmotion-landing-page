@@ -1,6 +1,6 @@
 ---
 import Button from "./Button.astro";
-import { Icon } from 'astro-icon';
+import { Icon } from "astro-icon/components";
 import Carousel from "./Carousel.astro";
 ---
 
@@ -8,10 +8,15 @@ import Carousel from "./Carousel.astro";
   <div
     class="min-h-screen lg:h-screen lg:min-h-0 lg:max-h-[950px] pt-[var(--navbar-height)] flex flex-col"
   >
-    <div class="w-full py-6 max-w-7xl mx-auto px-4 flex-1 grid md:grid-cols-2 gap-2  justify-center items-center">
+    <div
+      class="w-full py-6 max-w-7xl mx-auto px-4 flex-1 grid md:grid-cols-2 gap-2 justify-center items-center"
+    >
       <div class="space-y-6">
-        <h1 class="font-rubric text-5xl md:text-6xl  max-w-[520px] leading-[120%] font-bold">
-          <span class="text-[#F8C5B9]">Building Software</span> that helps you do better
+        <h1
+          class="font-rubric text-5xl md:text-6xl max-w-[520px] leading-[120%] font-bold"
+        >
+          <span class="text-[#F8C5B9]">Building Software</span> that helps you
+          do better
         </h1>
         <p class="max-w-[530px]">
           We specialize in creating innovative and impactful solutions for your
@@ -20,26 +25,26 @@ import Carousel from "./Carousel.astro";
         </p>
         <div class="flex gap-2 sm:gap-3 md:justify-start md:gap-4">
           <Button class="lg:hidden">
-              <Icon slot="icon-before" name="chat" />
-              Schedule a call
+            <Icon slot="icon-before" name="chat" />
+             Schedule a call
           </Button>
-          <Button variant="secondary" class="lg:hidden" >
-              <Icon slot="icon-after" name="forward" />
-              View projects
+          <Button variant="secondary" class="lg:hidden">
+            <Icon slot="icon-after" name="forward" />
+             View projects
           </Button>
           <Button size="lg" class="hidden lg:flex">
-              <Icon slot="icon-before" name="chat" />
-              Schedule a call
+            <Icon slot="icon-before" name="chat" />
+             Schedule a call
           </Button>
-          <Button variant="secondary" size="lg" class="hidden lg:flex" >
-              <Icon slot="icon-after" name="forward" />
-              View projects
+          <Button variant="secondary" size="lg" class="hidden lg:flex">
+            <Icon slot="icon-after" name="forward" />
+             View projects
           </Button>
         </div>
       </div>
-      <div/>
+      <div></div>
     </div>
-    <Carousel/>
+    <Carousel />
   </div>
 </section>
 <style>
@@ -47,5 +52,4 @@ import Carousel from "./Carousel.astro";
     background: linear-gradient(0deg, #0c0c0c 0%, #1e1e1e 81.05%);
     mix-blend-mode: screen;
   }
-
 </style>

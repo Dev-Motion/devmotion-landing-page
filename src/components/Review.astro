@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 import Button from "./Button.astro";
 import ReviewCard from "./ReviewCard.astro";
 import Avatar from "@/assets/images/avatar.png";
@@ -61,7 +61,9 @@ const reviews = [
 <section id="review" class="py-16 md:py-24 flex flex-col gap-12">
   <div class="flex justify-between max-w-7xl w-full mx-auto px-4">
     <div class="flex flex-col gap-3 text-left">
-      <h1 class="text-4xl md:text-5xl font-rubric font-extrabold capitalize text-white">
+      <h1
+        class="text-4xl md:text-5xl font-rubric font-extrabold capitalize text-white"
+      >
         Don’t take our word for it
       </h1>
       <p class="max-w-[550px] text-lg">
@@ -85,7 +87,10 @@ const reviews = [
       {
         reviews.map((review, i) => (
           <ReviewCard
-            className={cn("flex-[0_0_100%] md:flex-[0_0_30%]", i === 0 && "ml-6")}
+            className={cn(
+              "flex-[0_0_100%] md:flex-[0_0_30%]",
+              i === 0 && "ml-6"
+            )}
             {...review}
           />
         ))

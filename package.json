@@ -14,7 +14,7 @@
     "@astrojs/tailwind": "^5.0.2",
     "@fontsource/rubik": "^5.0.17",
     "astro": "^3.5.5",
-    "astro-icon": "^0.8.1",
+    "astro-icon": "^1.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "embla-carousel": "8.0.0-rc14",
